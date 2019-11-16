@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     int s = 20;
     static int k = 30;
     pid_t pid;
-    pid = vfork();
+    pid = fork();
     if (pid < 0)
     {
         perror("failed vfork!\n");
