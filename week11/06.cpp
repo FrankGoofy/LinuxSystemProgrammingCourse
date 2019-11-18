@@ -6,25 +6,25 @@
 
 void pr_exit(int status,int pid)
 {
-	int sig
+	int sig;
 	if(WIFEXITED(status))
 	{
 		printf("process %d normal termination,exit status =%d\n",pid,WEXITSTATUS(status));
 	}
-	esle if(WIFSIGNALED(status))
+	else if(WIFSIGNALED(status))
 	{
 		sig=WTERMSIG(status);
-		printf("process %d abnormal termination,exit signal number =%d%s\n",pid,sig);
+		printf("process %d abnormal termination,exit signal number =%d\n",pid,sig);
 		#ifdef WCOREDUMP
-			WCOREDUMP(status)?"(core file generated)":"");
+			WCOREDUMP(status)?"(core file generated)":")";
 		#else
-			"");
+			")";
 		#endif
 		psignal(sig,"");
 	}
 	else if(WIFSTOPPED(status))
 	{
-		sg=WSTOPSIG(status);
+		sig=WSTOPSIG(status);
 		printf("process %d stopped,signal number =%d:\n",pid,sig);
 		psignal(sig,"");
 	}
@@ -34,11 +34,11 @@ int zero =0;
 int main()
 {
 	int pid,status,r;
-	if((pid=fork)==0)
+	if((pid=fork())==0)
 	{
 		exit(0);
 	}
-	if((pid=fork)==0)
+	if((pid=fork())==0)
 	{
 		abort();
 	}
