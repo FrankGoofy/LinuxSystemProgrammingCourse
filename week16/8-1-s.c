@@ -1,11 +1,14 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
 #include <string.h>
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/wait.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+
 #define SERVPORT 3333 /*服务器监听端口号 */
 #define BACKLOG 10 /* 最大同时连接请求数 */
 

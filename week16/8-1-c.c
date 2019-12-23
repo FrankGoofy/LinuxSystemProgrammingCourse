@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
@@ -6,6 +6,8 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
+#include <unistd.h>
+
 #define SERVPORT 3333
 #define MAXDATASIZE 100 /*每次最大数据传输量 */
 
